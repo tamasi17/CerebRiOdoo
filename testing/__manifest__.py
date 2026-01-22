@@ -9,8 +9,8 @@ Like buying some techwear water-proof iridiscent thermal cargo pants in wish and
 Yeah that happened to me once I swear. I look amazing with it, always wear it the first day of summer.
     """,
 
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    'author': "Cereb.ri",
+    'website': "https://www.cereb.ri",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -19,13 +19,15 @@ Yeah that happened to me once I swear. I look amazing with it, always wear it th
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product', 'website'],
+    'depends': ['base', 'product', 'website', 'stock'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/product_rating_views.xml',
+        'views/product_template_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
