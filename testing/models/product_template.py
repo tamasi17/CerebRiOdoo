@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    rating_ids = fields.One2many(
+    client_rating_ids = fields.One2many(
         comodel_name='product.rating',
         inverse_name='product_tmpl_id',
         string='Ratings'
@@ -16,7 +16,7 @@ class ProductTemplate(models.Model):
         help="Computed average of all client ratings."
     )
 
-    @api.depends('rating_ids.score')
+    @api.depends('client_rating_ids.score')
     def _compute_average_rating(self):
         """
         Compute the mean score efficiently.
@@ -28,5 +28,5 @@ class ProductTemplate(models.Model):
                 continue
 
             # Efficiently extract scores using mapped
-            scores = product.rating_ids.mapped('score')
+            scores = product.client_rating_ids.mapped('score')
             product.average_rating = sum(scores) / len(scores)

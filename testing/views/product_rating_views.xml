@@ -4,13 +4,13 @@
         <field name="name">product.rating.tree</field>
         <field name="model">product.rating</field>
         <field name="arch" type="xml">
-            <tree string="Product Ratings">
+            <list string="Product Ratings">
                 <field name="name"/>
                 <field name="product_tmpl_id"/>
                 <field name="partner_id"/>
                 <field name="score" widget="priority"/>
                 <field name="create_date"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -45,7 +45,7 @@
     <record id="action_product_rating" model="ir.actions.act_window">
         <field name="name">Product Ratings</field>
         <field name="res_model">product.rating</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_product_rating_root"
