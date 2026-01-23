@@ -34,7 +34,7 @@ Yeah that happened to me once I swear. I look amazing with it, always wear it th
         'demo/demo.xml',
     ],
 
-    'application': True, # Makes it a main App on the dashboard
+    'application': True, # Makes it a main App on the dashboard, but moved to Inventory Menu
     'installable': True,
     'license': 'LGPL-3',
 }
