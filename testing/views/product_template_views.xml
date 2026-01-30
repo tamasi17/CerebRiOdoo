@@ -16,7 +16,7 @@
                     <field name="client_rating_ids" readonly="1">
                         <list>
                             <field name="partner_id"/>
-                            <field name="score"/>
+                            <field name="score" widget="priority"/>
                             <field name="comment"/>
                         </list>
                     </field>

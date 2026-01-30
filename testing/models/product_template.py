@@ -18,15 +18,11 @@ class ProductTemplate(models.Model):
 
     @api.depends('client_rating_ids.score')
     def _compute_average_rating(self):
-        """
-        Compute the mean score efficiently.
-        Using mapped() allows for safer iteration over recordsets.
-        """
         for product in self:
-            if not product.rating_ids:
+            if not product.client_rating_ids:
                 product.average_rating = 0.0
                 continue
 
-            # Efficiently extract scores using mapped
-            scores = product.client_rating_ids.mapped('score')
+            # Convertimos los strings a enteros para poder sumar
+            scores = [int(r.score) for r in product.client_rating_ids if r.score]
             product.average_rating = sum(scores) / len(scores)

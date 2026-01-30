@@ -23,12 +23,14 @@ class ProductRating(models.Model):
         required=True,
         ondelete='cascade'
     )
-    score = fields.Integer(
-        string='Score (1-5)',
-        default=5,
-        required=True,
-        help="Rate the product between 1 and 5."
-    )
+    score = fields.Selection([
+        ('1', '1 Estrella'),
+        ('2', '2 Estrellas'),
+        ('3', '3 Estrellas'),
+        ('4', '4 Estrellas'),
+        ('5', '5 Estrellas'),
+    ], string='Score', default='5', required=True)
+
     comment = fields.Text(string='Feedback')
 
     @api.model_create_multi
