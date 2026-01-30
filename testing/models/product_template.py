@@ -16,13 +16,13 @@ class ProductTemplate(models.Model):
         help="Computed average of all client ratings."
     )
 
-    @api.depends('client_rating_ids.score')
-    def _compute_average_rating(self):
-        for product in self:
-            if not product.client_rating_ids:
-                product.average_rating = 0.0
-                continue
+@api.depends('client_rating_ids.score')
+def _compute_average_rating(self):
+    for product in self:
+        if not product.client_rating_ids:
+            product.average_rating = 0.0
+            continue
 
-            # Convertimos los strings a enteros para poder sumar
-            scores = [int(r.score) for r in product.client_rating_ids if r.score]
-            product.average_rating = sum(scores) / len(scores)
+        # Convertimos a int() para poder hacer el promedio
+        scores = [int(r.score) for r in product.client_rating_ids if r.score]
+        product.average_rating = sum(scores) / len(scores)

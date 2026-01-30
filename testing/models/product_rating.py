@@ -24,6 +24,7 @@ class ProductRating(models.Model):
         ondelete='cascade'
     )
     score = fields.Selection([
+        ('0', 'Sin puntuación'),
         ('1', '1 Estrella'),
         ('2', '2 Estrellas'),
         ('3', '3 Estrellas'),

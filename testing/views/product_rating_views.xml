@@ -29,7 +29,7 @@
                             <field name="partner_id"/>
                         </group>
                         <group>
-                            <field name="score" widget="priority"/>
+                            <field name="score" widget="priority" string="Valoración"/>
                         </group>
                     </group>
                     <notebook>
