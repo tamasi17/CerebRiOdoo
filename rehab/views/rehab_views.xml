@@ -1,0 +1,15 @@
+<odoo>
+    <record id="action_rehab_main" model="ir.actions.act_window">
+        <field name="name">Casos de Rehab</field>
+        <field name="res_model">rehab</field> <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_rehab_root"
+              name="Rehabilitación"
+              sequence="10"
+              web_icon="rehab,static/description/icon.png"/> <menuitem id="menu_rehab_list"
+                                                                       name="Listado de Casos"
+                                                                       parent="menu_rehab_root"
+                                                                       action="action_rehab_main"
+                                                                       sequence="10"/>
+</odoo>
