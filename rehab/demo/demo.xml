@@ -1,30 +1,22 @@
 <odoo>
-    <data>
-<!--
-          <record id="object0" model="plantilla.plantilla">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+    <record id="rehab_case_1" model="rehab">
+        <field name="name">Juan Pérez</field>
+        <field name="injury_level">mild</field>
+        <field name="rehab_start_date" eval="datetime.now() - timedelta(days=10)"/>
+        <field name="notes">Paciente con esguince de tobillo grado 1. Progreso favorable con ejercicios de estabilidad.</field>
+    </record>
 
-          <record id="object1" model="plantilla.plantilla">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+    <record id="rehab_case_2" model="rehab">
+        <field name="name">María García</field>
+        <field name="injury_level">moderate</field>
+        <field name="rehab_start_date" eval="datetime.now() - timedelta(days=30)"/>
+        <field name="notes">Recuperación post-operatoria de ligamento cruzado. Requiere asistencia de exoesqueleto para marcha.</field>
+    </record>
 
-          <record id="object2" model="plantilla.plantilla">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
-
-          <record id="object3" model="plantilla.plantilla">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
-
-          <record id="object4" model="plantilla.plantilla">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
-    </data>
+    <record id="rehab_case_3" model="rehab">
+        <field name="name">Carlos Ruiz</field>
+        <field name="injury_level">severe</field>
+        <field name="rehab_start_date" eval="datetime.now()"/>
+        <field name="notes">Lesión medular incompleta. Inicio de protocolo intensivo de rehabilitación robótica.</field>
+    </record>
 </odoo>
