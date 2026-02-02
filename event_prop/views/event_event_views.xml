@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_event_form_inherit_bci" model="ir.ui.view">
+    <field name="name">event.event.form.inherit.bci</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+
+
+        <xpath expr="//notebook" position="inside">
+            <page string="Event Proposals" name="proposal_tab">
+                <group>
+                    <field name="proposal_status"/>
+                </group>
+            </page>
+        </xpath>
+
+    </field>
+</record>
+
+    <record id="action_bci_event_proposals" model="ir.actions.act_window">
+        <field name="name">Event Proposals</field>
+        <field name="res_model">event.event</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('proposal_status', '!=', 'draft')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No workshop or exoskeleton testing proposals yet.
+            </p>
+            <p>
+                Proposals will appear here when users start adding information.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_bci_event_proposals"
+              name="Event Proposals"
+              parent="event.event_main_menu"
+              action="action_bci_event_proposals"
+              sequence="20"/>
+
+    <record id="view_bci_event_tree" model="ir.ui.view">
+        <field name="name">event.event.list.bci</field>
+        <field name="model">event.event</field>
+        <field name="arch" type="xml">
+            <list string="Event Proposals" decoration-info="proposal_status == 'proposed'"
+                  decoration-success="proposal_status == 'approved'">
+                <field name="name" string="Workshop/Trial"/>
+                <field name="date_begin"/>
+                <field name="proposal_status" widget="badge" decoration-warning="proposal_status == 'proposed'"
+                       decoration-success="proposal_status == 'approved'"/>
+                <field name="stage_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_bci_event_proposals_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_bci_event_tree"/>
+        <field name="act_window_id" ref="action_bci_event_proposals"/>
+    </record>
+</odoo>
