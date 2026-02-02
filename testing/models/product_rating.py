@@ -1,4 +1,6 @@
 from odoo import models, fields, api, exceptions
+from odoo.exceptions import ValidationError
+
 
 class ProductRating(models.Model):
     _name = 'product.rating'
@@ -30,7 +32,7 @@ class ProductRating(models.Model):
         ('3', '3 Estrellas'),
         ('4', '4 Estrellas'),
         ('5', '5 Estrellas'),
-    ], string='Score', default='5', required=True)
+    ], string='Score', default='5')
 
     comment = fields.Text(string='Feedback')
 
@@ -47,8 +49,8 @@ class ProductRating(models.Model):
     def _check_score_range(self):
         """Ensure the score is within valid bounds."""
         for record in self:
-            if not (1 <= record.score <= 5):
-                raise exceptions.ValidationError("The rating score must be between 1 and 5.")
+            if record.score and not (1 <= int(record.score) <= 5):
+                raise ValidationError("La puntuación debe estar entre 1 y 5 estrellas.")
 
     _sql_constraints = [
         ('unique_client_product_rating',

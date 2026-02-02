@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_exo_paciente,exo.paciente,model_exo_paciente,base.group_user,1,1,1,1
+access_exo_dispositivo,exo.dispositivo,model_exo_dispositivo,base.group_user,1,1,1,1
+access_exo_sesion,exo.sesion,model_exo_sesion,base.group_user,1,1,1,1

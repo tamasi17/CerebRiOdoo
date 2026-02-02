@@ -1,0 +1,33 @@
+<odoo>
+    <menuitem id="menu_exo_root"
+              name="Rehab Exo"
+              sequence="10"/>
+
+    <menuitem id="menu_exo_operaciones"
+              name="Operaciones"
+              parent="menu_exo_root"
+              sequence="10"/>
+
+    <menuitem id="menu_exo_sesion"
+              name="Sesiones"
+              parent="menu_exo_operaciones"
+              action="action_exo_sesion"
+              sequence="10"/>
+
+    <menuitem id="menu_exo_config"
+              name="Configuración"
+              parent="menu_exo_root"
+              sequence="20"/>
+
+    <menuitem id="menu_exo_paciente"
+              name="Pacientes"
+              parent="menu_exo_config"
+              action="action_exo_paciente"
+              sequence="10"/>
+
+    <menuitem id="menu_exo_dispositivo"
+              name="Exoesqueletos"
+              parent="menu_exo_config"
+              action="action_exo_dispositivo"
+              sequence="20"/>
+</odoo>

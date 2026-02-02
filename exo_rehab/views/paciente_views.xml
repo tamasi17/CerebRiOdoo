@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_paciente_tree" model="ir.ui.view">
+        <field name="name">exo.paciente.tree</field>
+        <field name="model">exo.paciente</field>
+        <field name="arch" type="xml">
+            <list string="Pacientes">
+                <field name="name"/>
+                <field name="telefono"/>
+                <field name="fecha_nacimiento"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_paciente_form" model="ir.ui.view">
+        <field name="name">exo.paciente.form</field>
+        <field name="model">exo.paciente</field>
+        <field name="arch" type="xml">
+            <form string="Paciente">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nombre del Paciente"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="fecha_nacimiento"/>
+                            <field name="telefono"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Historial Clínico">
+                            <field name="historial" placeholder="Añadir antecedentes médicos..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_exo_paciente" model="ir.actions.act_window">
+        <field name="name">Pacientes</field>
+        <field name="res_model">exo.paciente</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
